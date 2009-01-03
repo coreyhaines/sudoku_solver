@@ -16,7 +16,12 @@ describe Board do
     end
   end
   
-  
+  context "encoding game array" do
+    it "gives a nice string representation" do
+      board = Board.parse(COMPLETE_BOARD)
+      board.encoded.should == COMPLETE_BOARD.flatten.join("")
+    end
+  end
   
   
   

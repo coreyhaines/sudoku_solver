@@ -6,6 +6,10 @@ class Board
   def initialize(array=Array.new(9){Array.new(9)})
     @board = array
   end
+  def encoded
+    @board.flatten.join("")
+  end
+
 
   def value_at(row_index, column_index)
     @board[row_index][column_index]
