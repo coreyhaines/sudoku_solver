@@ -1,18 +1,18 @@
 = sudoku_solver
 
-* FIX (url)
+http://github.com/coreyhaines/sudoku_solver/tree/master
 
 == DESCRIPTION:
 
-FIX (describe your package)
+This is the beginning of a sudoku solver. I couldn't sleep, so I decided to implement this. It it a first pass at a 'wishful thinking' solution, starting at the solver, then moving down to cells.
 
 == FEATURES/PROBLEMS:
 
-* FIX (list of features or problems)
+It currently solved puzzles where a single digit is missing. The structure is there, though, to solve the rest.
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+Okay, I went a bit overboard. But, it was an experiment.
 
 == REQUIREMENTS:
 
@@ -20,13 +20,13 @@ FIX (describe your package)
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+hmm... get it from github
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2009 FIXME full name
+Copyright (c) 2009 Corey Haines
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
