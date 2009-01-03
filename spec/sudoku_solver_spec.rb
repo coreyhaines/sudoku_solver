@@ -40,11 +40,17 @@ describe SudokuSolver do
 
   context "unfinished board" do
     before(:each) do
-      @board = mock("board", :completed? => false, :fill_in_rows_with_single_missing_digit => nil)
+      @board = mock("board", :completed? => false, 
+                :fill_in_rows_with_single_missing_digit! => nil,
+                :fill_in_cols_with_single_missing_digit! => nil)
       @solver = SudokuSolver.new
     end
-    it "should fill in rows with single digits" do
+    it "fills in rows with single digits" do
       @board.should_receive(:fill_in_rows_with_single_missing_digit!)
+      @solver.complete(@board)
+    end
+    it "fills in cols with single digits" do
+      @board.should_receive(:fill_in_cols_with_single_missing_digit!)
       @solver.complete(@board)
     end
   end
