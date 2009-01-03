@@ -55,14 +55,11 @@ private
   end
   
   def rows
-    rows_of_cells = []
-    @board.each_with_index do |row_digits, row_index|
-      cells_for_this_row = []
-      row_digits.each_with_index do |digit, column_index|
-        cells_for_this_row << Cell.new(self, Coordinate.new(row_index,column_index))
+    (0..8).map do |row_index|
+      cells = (0..8).map do |column_index|
+        Cell.new(self, Coordinate.new(row_index,column_index))
       end
-      rows_of_cells << Section.new(Cells.new(cells_for_this_row))
+      Section.new(Cells.new(cells))
     end
-    rows_of_cells
   end
 end
