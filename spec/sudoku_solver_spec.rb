@@ -42,16 +42,23 @@ describe SudokuSolver do
     before(:each) do
       @board = mock("board", :completed? => false, 
                 :fill_in_rows_with_single_missing_digit! => nil,
-                :fill_in_cols_with_single_missing_digit! => nil)
+                :fill_in_cols_with_single_missing_digit! => nil,
+                :fill_in_squares_with_single_missing_digit! => nil)
       @solver = SudokuSolver.new
     end
-    it "fills in rows with single digits" do
-      @board.should_receive(:fill_in_rows_with_single_missing_digit!)
-      @solver.complete(@board)
-    end
-    it "fills in cols with single digits" do
-      @board.should_receive(:fill_in_cols_with_single_missing_digit!)
-      @solver.complete(@board)
+    context "single digits missing" do
+      it "fills in rows" do
+        @board.should_receive(:fill_in_rows_with_single_missing_digit!)
+        @solver.complete(@board)
+      end
+      it "fills in cols" do
+        @board.should_receive(:fill_in_cols_with_single_missing_digit!)
+        @solver.complete(@board)
+      end
+      it "fills in squares" do
+        @board.should_receive(:fill_in_squares_with_single_missing_digit!)
+        @solver.complete(@board)
+      end
     end
   end
 
