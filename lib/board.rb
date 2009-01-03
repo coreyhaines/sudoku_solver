@@ -28,7 +28,7 @@ class Board
   end
   
 private
-  def fill_in_single_digits_if_missing pieces
-    pieces.each { |piece| piece.fill_in_single_digit_if_missing!}
+  def fill_in_single_digits_if_missing sections
+    sections.each { |section| section.fill_in_single_digit_if_missing!}
   end
 end
