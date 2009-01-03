@@ -6,4 +6,10 @@ class Cell
   def completed?
     ! @board.empty?(@coordinates)
   end
+  def value=(new_value)
+    @board.set_value(@coordinates, new_value)
+  end
+  def value
+    @board.get_value(@coordinates)
+  end
 end
