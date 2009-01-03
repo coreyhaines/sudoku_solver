@@ -16,6 +16,15 @@ describe Board do
     end
   end
 
+  context "getting and setting values" do
+    board = Board.parse(COMPLETE_BOARD)
+    coordinates = Coordinate.new(3,3)
+    before_value = board.get_value(coordinates)
+    board.set_value(coordinates, before_value+1)
+    board.get_value(coordinates).should == before_value+1
+  end
+
+
   context "asking for whether a given spot is empty" do
     it "tells you a nil entry is empty" do
       COMPLETE_BOARD[1][1] = nil

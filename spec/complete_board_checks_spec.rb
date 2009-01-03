@@ -2,18 +2,40 @@ require File.dirname(__FILE__) + '/spec_helper.rb'
 
 describe "Complete Puzzle Specs" do
 
-  context "single digit missing boards" do
-    it "solves them just fine" do
-      pending
-      
+  context "single digit row missing boards" do
+    it "solves if only one missing digit" do
       starting_board = COMPLETE_BOARD.deep_clone
     
-      starting_board[0][0] = nil
+      starting_board[rand(9)][rand(9)] = nil
     
       solver = SudokuSolver.new
       solved_board = solver.complete(Board.parse(starting_board))
       solved_board.encoded.should == COMPLETE_BOARD.flatten.join("")
     end
+    
+    it "solves if two missing digits" do
+      starting_board = COMPLETE_BOARD.deep_clone
+    
+      starting_board[4][8] = nil
+      starting_board[1][3] = nil
+    
+      solver = SudokuSolver.new
+      solved_board = solver.complete(Board.parse(starting_board))
+      solved_board.encoded.should == COMPLETE_BOARD.flatten.join("")
+    end
+
+    it "solves if three missing digits" do
+      starting_board = COMPLETE_BOARD.deep_clone
+    
+      starting_board[4][8] = nil
+      starting_board[1][3] = nil
+      starting_board[8][1] = nil
+    
+      solver = SudokuSolver.new
+      solved_board = solver.complete(Board.parse(starting_board))
+      solved_board.encoded.should == COMPLETE_BOARD.flatten.join("")
+    end
+
   end
 
 

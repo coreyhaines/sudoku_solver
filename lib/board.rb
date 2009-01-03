@@ -22,6 +22,13 @@ class Board
     @board[coordinate.row][coordinate.column].nil?
   end
 
+  def get_value(coordinate)
+    @board[coordinate.row][coordinate.column]
+  end
+  def set_value(coordinate, new_value)
+    @board[coordinate.row][coordinate.column] = new_value
+  end
+
   def value_at(row_index, column_index)
     @board[row_index][column_index]
   end
@@ -58,5 +65,4 @@ private
     end
     rows_of_cells
   end
-  
 end

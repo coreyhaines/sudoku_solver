@@ -17,6 +17,11 @@ describe Cell do
       @board.should_receive(:get_value).with(@coordinates).and_return(val)
       @cell.value.should == val
     end
+    it "converts a nil value to a 0" do
+      val = nil
+      @board.should_receive(:get_value).with(@coordinates).and_return(val)
+      @cell.value.should == 0
+    end
   end
   context "asking for completion" do
     it "returns false if the board says it is empty" do

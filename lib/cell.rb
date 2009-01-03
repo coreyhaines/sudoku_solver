@@ -10,6 +10,7 @@ class Cell
     @board.set_value(@coordinates, new_value)
   end
   def value
-    @board.get_value(@coordinates)
+    val = @board.get_value(@coordinates)
+    val.nil? ? 0 : val
   end
 end
