@@ -12,7 +12,7 @@ It currently solved puzzles where a single digit is missing. The structure is th
 
 == SYNOPSIS:
 
-Okay, I went a bit overboard. But, it was an experiment.
+When reading it, start at sudoku_solver, then to board, then to section, then to cells, then to cell. Okay, cell goes back to board. This was inspired by watching the videos for 'Structure and Interpretation of Computer Programs.' I was experimenting to see how a full blown 'wishful thinking' approach would turn out.
 
 == REQUIREMENTS:
 
