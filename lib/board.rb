@@ -62,4 +62,12 @@ private
       Section.new(Cells.new(cells))
     end
   end
+  def columns
+    (0..8).map do |column_index|
+      cells = (0..8).map do |row_index|
+        Cell.new(self, Coordinate.new(row_index,column_index))
+      end
+      Section.new(Cells.new(cells))
+    end
+  end
 end
