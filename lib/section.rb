@@ -1,4 +1,8 @@
 class Section
+  def initialize(cells)
+    self.cells = cells
+  end
+  
   def completed?
     cells.all? { |cell| cell.completed? }
   end
@@ -8,4 +12,7 @@ class Section
       cells.set_missing_digit!
     end
   end
+  
+private
+  attr_accessor :cells
 end
