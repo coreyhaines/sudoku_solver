@@ -9,7 +9,7 @@ end
 $:.unshift(File.dirname(__FILE__) + '/../lib')
 require 'sudoku_solver'
 require 'board'
-require 'row'
+require 'section'
 require 'column'
 
 COMPLETE_BOARD = 

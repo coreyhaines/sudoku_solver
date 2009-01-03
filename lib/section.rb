@@ -1,4 +1,4 @@
-class Row
+class Section
   def completed?
     cells.all? { |cell| cell.completed? }
   end
