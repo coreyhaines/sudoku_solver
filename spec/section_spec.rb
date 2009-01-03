@@ -3,21 +3,19 @@ require File.dirname(__FILE__) + '/spec_helper.rb'
 describe Section do
   context "filling in single digit if missing" do
     it "does nothing if count of empty cells is 0" do
-      cells = Array.new(9, mock("cell", :completed? => true))
+      cells = mock("cells", :count_of_empty_cells => 0)
       section = Section.new
       section.stub!(:cells).and_return(cells)
       section.fill_in_single_digit_if_missing!
     end
     it "does nothing if count is > 1" do
-      cells = Array.new(7, mock("cell", :completed? => true))
-      cells += Array.new(2, mock("cell", :completed? => false))
+      cells = mock("cells", :count_of_empty_cells => 2)
       section = Section.new
       section.stub!(:cells).and_return(cells)
       section.fill_in_single_digit_if_missing!
     end
     it "it sets cell if count is 1" do
-      cells = Array.new(8, mock("cell", :completed? => true))
-      cells += Array.new(1, mock("cell", :completed? => false))
+      cells = mock("cells", :count_of_empty_cells => 1)
       section = Section.new
       section.stub!(:cells).and_return(cells)
       cells.should_receive(:set_missing_digit!)
