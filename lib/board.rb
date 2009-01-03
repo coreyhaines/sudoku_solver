@@ -55,21 +55,25 @@ private
   end
   
   def rows
-    (0..8).map do |row_index|
-      cells = (0..8).map do |column_index|
-        Cell.new(self, Coordinate.new(row_index,column_index))
-      end
-      Section.new(Cells.new(cells))
+    each_line_of_cells do |major_line_index, minor_line_index|
+      Cell.new(self, Coordinate.new(major_line_index,minor_line_index))
     end
   end
   def columns
-    (0..8).map do |column_index|
-      cells = (0..8).map do |row_index|
-        Cell.new(self, Coordinate.new(row_index,column_index))
+    each_line_of_cells do |major_line_index, minor_line_index|
+      Cell.new(self, Coordinate.new(minor_line_index,major_line_index))
+    end
+  end
+  def each_line_of_cells
+    (0..8).map do |major_line_index|
+      cells = (0..8).map do |minor_line_index|
+        yield major_line_index, minor_line_index
       end
       Section.new(Cells.new(cells))
     end
   end
+  
+  
   def squares
     squares = []
 
