@@ -11,7 +11,7 @@ class SudokuSolver
     until board.completed?
       board.fill_in_rows_with_single_missing_digit!
       board.fill_in_columns_with_single_missing_digit!
-      # board.fill_in_squares_with_single_missing_digit!
+      board.fill_in_squares_with_single_missing_digit!
       # board.fill_in_pairs_in_rows!
       # board.fill_in_pairs_in_columns!
       # board.fill_in_pairs_in_squares!

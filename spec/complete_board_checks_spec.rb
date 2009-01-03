@@ -57,6 +57,21 @@ describe "Complete Puzzle Specs" do
       solved_board = solver.complete(Board.parse(starting_board))
       solved_board.encoded.should == COMPLETE_BOARD.flatten.join("")
     end
+    
+    it "solves if missing digits in same row/columns, different squares" do
+      starting_board = COMPLETE_BOARD.deep_clone
+    
+      starting_board[1][1] = nil
+      starting_board[1][7] = nil
+      starting_board[7][1] = nil
+      starting_board[7][7] = nil
+      starting_board[1][4] = nil
+      starting_board[7][4] = nil
+    
+      solver = SudokuSolver.new
+      solved_board = solver.complete(Board.parse(starting_board))
+      solved_board.encoded.should == COMPLETE_BOARD.flatten.join("")
+    end
   end
 
 

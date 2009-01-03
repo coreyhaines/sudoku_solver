@@ -70,4 +70,86 @@ private
       Section.new(Cells.new(cells))
     end
   end
+  def squares
+    squares = []
+
+    cells = []
+    0.upto(2) do |row_index|
+      0.upto(2) do |column_index|
+        cells << Cell.new(self, Coordinate.new(row_index, column_index))
+      end
+    end
+    squares << Section.new(Cells.new(cells))
+
+    cells = []
+    3.upto(5) do |row_index|
+      0.upto(2) do |column_index|
+        cells << Cell.new(self, Coordinate.new(row_index, column_index))
+      end
+    end
+    squares << Section.new(Cells.new(cells))
+
+    cells = []
+    6.upto(8) do |row_index|
+      0.upto(2) do |column_index|
+        cells << Cell.new(self, Coordinate.new(row_index, column_index))
+      end
+    end
+    squares << Section.new(Cells.new(cells))
+
+
+    cells = []
+    0.upto(2) do |row_index|
+      3.upto(5) do |column_index|
+        cells << Cell.new(self, Coordinate.new(row_index, column_index))
+      end
+    end
+    squares << Section.new(Cells.new(cells))
+
+    cells = []
+    3.upto(5) do |row_index|
+      3.upto(5) do |column_index|
+        cells << Cell.new(self, Coordinate.new(row_index, column_index))
+      end
+    end
+    squares << Section.new(Cells.new(cells))
+
+    cells = []
+    6.upto(8) do |row_index|
+      3.upto(5) do |column_index|
+        cells << Cell.new(self, Coordinate.new(row_index, column_index))
+      end
+    end
+    squares << Section.new(Cells.new(cells))
+
+
+    cells = []
+    0.upto(2) do |row_index|
+      6.upto(8) do |column_index|
+        cells << Cell.new(self, Coordinate.new(row_index, column_index))
+      end
+    end
+    squares << Section.new(Cells.new(cells))
+
+    cells = []
+    3.upto(5) do |row_index|
+      6.upto(8) do |column_index|
+        cells << Cell.new(self, Coordinate.new(row_index, column_index))
+      end
+    end
+    squares << Section.new(Cells.new(cells))
+
+    cells = []
+    6.upto(8) do |row_index|
+      6.upto(8) do |column_index|
+        cells << Cell.new(self, Coordinate.new(row_index, column_index))
+      end
+    end
+    squares << Section.new(Cells.new(cells))
+
+
+
+
+    squares
+  end
 end
