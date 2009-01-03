@@ -37,3 +37,10 @@ COMPLETE_BOARD_2 =
                   [1,3,7,8,5,2,9,6,4],
                   [6,5,4,7,1,9,3,8,2]
                 ]
+module DeepClone
+  def deep_clone
+   self.inject([]) { |accum, row| accum << row }
+  end
+end
+COMPLETE_BOARD.extend(DeepClone)
+COMPLETE_BOARD_2.extend(DeepClone)

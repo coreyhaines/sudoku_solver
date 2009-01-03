@@ -1,11 +1,6 @@
 require File.dirname(__FILE__) + '/spec_helper.rb'
 
 
-module DeepClone
-  def deep_clone
-   self.inject([]) { |accum, row| accum << row }
-  end
-end
 
 describe SudokuSolver do
   it "returns a completed board" do
