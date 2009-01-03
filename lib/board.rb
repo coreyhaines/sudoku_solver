@@ -1,4 +1,16 @@
 class Board
+  def self.parse(array)
+    Board.new(array)
+  end
+
+  def initialize(array=Array.new(9){Array.new(9)})
+    @board = array
+  end
+
+  def value_at(row_index, column_index)
+    @board[row_index][column_index]
+  end
+  
   def completed?
     rows.all? {|row|row.completed?}
   end
@@ -16,7 +28,7 @@ class Board
   end
   
 private
-  def fill_in_single_digits_if_missing collection
-    collection.each { |column| column.fill_in_single_digit_if_missing!}
+  def fill_in_single_digits_if_missing pieces
+    pieces.each { |piece| piece.fill_in_single_digit_if_missing!}
   end
 end

@@ -1,6 +1,25 @@
 require File.dirname(__FILE__) + '/spec_helper.rb'
 
+
+
 describe Board do
+  context "parsing initial game array" do
+    it "allow you get to ask for the number at a specific square" do
+      board = Board.parse(COMPLETE_BOARD)
+      
+      COMPLETE_BOARD.each_with_index do |row, row_index|
+        row.each_with_index do |cell_value, cell_index|
+          board.value_at(row_index,cell_index).should == cell_value
+        end
+      end
+      
+    end
+  end
+  
+  
+  
+  
+  
   context "filling in rows with single digits missing" do
     it "tells each row to fill in single digit if missing" do
       rows = Array.new(3) { mock("row")}
