@@ -10,7 +10,6 @@ $:.unshift(File.dirname(__FILE__) + '/../lib')
 require 'sudoku_solver'
 require 'board'
 require 'section'
-require 'column'
 
 COMPLETE_BOARD = 
                 [
