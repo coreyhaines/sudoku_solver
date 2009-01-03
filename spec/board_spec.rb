@@ -1,6 +1,37 @@
 require File.dirname(__FILE__) + '/spec_helper.rb'
 
 describe Board do
+  context "filling in rows with single digits missing" do
+    it "tells each row to fill in single digit if missing" do
+      rows = Array.new(3) { mock("row")}
+      rows.each { |row| row.should_receive(:fill_in_single_digit_if_missing!)}
+      board = Board.new
+      board.stub!(:rows).and_return(rows)
+      board.fill_in_rows_with_single_missing_digit!
+    end
+  end
+
+  context "filling in columns with single digits missing" do
+    it "tells each column to fill in single digit if missing" do
+      columns = Array.new(3) { mock("column")}
+      columns.each { |col| col.should_receive(:fill_in_single_digit_if_missing!)}
+      board = Board.new
+      board.stub!(:columns).and_return(columns)
+      board.fill_in_columns_with_single_missing_digit!
+    end
+  end
+
+  context "filling in squares with single digits missing" do
+    it "tells each squareumn to fill in single digit if missing" do
+      squares = Array.new(3) { mock("squares")}
+      squares.each { |square| square.should_receive(:fill_in_single_digit_if_missing!)}
+      board = Board.new
+      board.stub!(:squares).and_return(squares)
+      board.fill_in_squares_with_single_missing_digit!
+    end
+  end
+  
+  
   context "asking for completeness" do
     it "says complete if all rows are completed" do
       rows = [mock("row", :completed? => true), mock("row", :completed? => true)]

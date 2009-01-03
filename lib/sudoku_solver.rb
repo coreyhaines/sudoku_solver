@@ -10,7 +10,7 @@ class SudokuSolver
   def complete(board)
     until board.completed?
       board.fill_in_rows_with_single_missing_digit!
-      board.fill_in_cols_with_single_missing_digit!
+      board.fill_in_columns_with_single_missing_digit!
       board.fill_in_squares_with_single_missing_digit!
     end
     board
