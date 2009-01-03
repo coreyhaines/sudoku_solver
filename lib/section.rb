@@ -4,7 +4,7 @@ class Section
   end
   
   def completed?
-    cells.all? { |cell| cell.completed? }
+    cells.count_of_empty_cells == 0
   end
   
   def fill_in_single_digit_if_missing!

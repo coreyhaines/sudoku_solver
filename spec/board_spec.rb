@@ -2,7 +2,8 @@ require File.dirname(__FILE__) + '/spec_helper.rb'
 
 
 
-describe Board do
+describe Board do 
+  
   context "parsing initial game array" do
     it "allow you get to ask for the number at a specific square" do
       board = Board.parse(COMPLETE_BOARD)
@@ -12,7 +13,19 @@ describe Board do
           board.value_at(row_index,cell_index).should == cell_value
         end
       end
-      
+    end
+  end
+
+  context "asking for whether a given spot is empty" do
+    it "tells you a nil entry is empty" do
+      COMPLETE_BOARD[1][1] = nil
+      board = Board.parse(COMPLETE_BOARD)
+      board.empty?(Coordinate.new(1,1)).should be_true
+    end
+    it "tells you a non-nil entry is not empty" do
+      COMPLETE_BOARD[1][1] = nil
+      board = Board.parse(COMPLETE_BOARD)
+      board.empty?(Coordinate.new(2,1)).should be_false
     end
   end
   
@@ -73,4 +86,7 @@ describe Board do
       board.completed?.should be_false
     end
   end
+  
+  
+  
 end
