@@ -3,6 +3,6 @@ end
 
 class Board
   def completed?
-    true
+    rows.all? {|row|row.completed?}
   end
 end
